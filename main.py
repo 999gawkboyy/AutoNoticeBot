@@ -16,10 +16,10 @@ if __name__ == '__main__':
                 dDay = calculate_dday()
                 lunchMenu = '\n'.join(findTodaysLunch())
                 message = f"""=============================
-            정보처리기능사 실기 시험이 {dDay}일 남았습니다.
-            -----------------------------------------------
-            오늘의 급식은 \n{lunchMenu} 입니다.
-            ============================="""
+정보처리기능사 실기 시험이 {dDay}일 남았습니다.
+-----------------------------------------------
+오늘의 급식은 \n{lunchMenu} 입니다.
+============================="""
                 kakao_sendtext(chatroom_name, message)
                 tomorrow = today + 1
         print(today, tomorrow)
