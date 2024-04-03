@@ -2,7 +2,8 @@ from noticeTestDay import open_chatroom, kakao_sendtext, calculate_dday
 import datetime
 import time
 from noticeLunchMenu import findTodaysLunch
-import schedule
+import schedule, os
+from noticeProblem import kakao_sendMedia
 
 chatroom_name = '23년 도제반'
 
@@ -20,8 +21,14 @@ def main() -> None:
 정보처리기능사 실기 시험이 {dDay}일 남았습니다.
 ----------------------------------
 {lunchMsg}
+----------------------------------
+오늘의 정보처리기능사 문제입니다
 ==========================="""
+    fileDir = "C:\\projects\\and\\complete.png"
     kakao_sendtext(chatroom_name, message)
+    kakao_sendMedia(fileDir, chatroom_name)
+    time.sleep(5)
+    os.system("shutdown -s -t 1")
 
 schedule.every().day.at("07:00").do(main)
 
