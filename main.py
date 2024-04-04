@@ -24,11 +24,11 @@ def main() -> None:
 ----------------------------------
 오늘의 정보처리기능사 문제입니다
 ==========================="""
-    fileDir = "C:\\projects\\and\\complete.png"
+    fileDir = ""
     kakao_sendtext(chatroom_name, message)
     kakao_sendMedia(fileDir, chatroom_name)
     time.sleep(5)
-    os.system("shutdown -s -t 1")
+    #os.system("shutdown -s -t 1")
 
 schedule.every().day.at("07:00").do(main)
 

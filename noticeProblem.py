@@ -1,4 +1,4 @@
-import win32con, win32api, win32gui, time
+import win32con, win32api, win32gui, time, win32com.client
 from noticeTestDay import SendReturn
 
 def callback(h, p):
@@ -8,6 +8,8 @@ def callback(h, p):
 
 def kakao_sendMedia(fileDir, chatroom_name):
     chatHwnd = win32gui.FindWindow(None, chatroom_name)
+    shell = win32com.client.Dispatch("WScript.Shell")
+    shell.SendKeys('%')
     win32gui.SetForegroundWindow(chatHwnd)
     win32api.keybd_event(win32con.VK_CONTROL, 0, 0, 0)
     win32api.keybd_event(0x54, 0, 0, 0) 
