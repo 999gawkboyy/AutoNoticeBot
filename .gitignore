@@ -1,2 +1,5 @@
 __pycache__/
 *.png
+네트워크/
+*.txt
+test.py

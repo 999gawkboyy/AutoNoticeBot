@@ -24,11 +24,20 @@ def main() -> None:
 ----------------------------------
 오늘의 정보처리기능사 문제입니다
 ==========================="""
-    fileDir = ""
+    
+    f = open("t.txt", "r")
+    index = int(f.readline())
+    print(index)
+
+    fileDir = f"C:\\projects\\and\\네트워크\\NET_{index}.jpg"
     kakao_sendtext(chatroom_name, message)
     kakao_sendMedia(fileDir, chatroom_name)
+
+    f = open("t.txt", "w")
+    f.write(str(index + 1))
+
     time.sleep(5)
-    #os.system("shutdown -s -t 1")
+    os.system("shutdown -s -t 1")
 
 schedule.every().day.at("07:00").do(main)
 
