@@ -17,11 +17,12 @@ def kakao_sendMedia(fileDir, chatroom_name):
     # win32api.keybd_event(0x54, 0, win32con.KEYEVENTF_KEYUP, 0)  
     # win32api.keybd_event(win32con.VK_CONTROL, 0, win32con.KEYEVENTF_KEYUP, 0)
     # time.sleep(0.5)
+    time.sleep(0.5)
     fileOpenImg = "openfile.png"
     imgLocation = pyautogui.locateOnScreen(fileOpenImg)
     pyautogui.moveTo(imgLocation)
     pyautogui.click(imgLocation)
-
+    time.sleep(1)
     openFileHwnd = win32gui.FindWindow(None, "열기")
     if openFileHwnd == 0: print("ERROR")
     comboBoxEx = win32gui.FindWindowEx(openFileHwnd, None, "ComboBoxEx32", None)

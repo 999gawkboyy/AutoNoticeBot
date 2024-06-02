@@ -3,7 +3,7 @@ import time, win32con, win32api, win32gui
 
 def calculate_dday():
     today = datetime.date.today()
-    test_day = datetime.date(2024,6,16)
+    test_day = datetime.date(2024,6,17)
     d_day = test_day - today
     return d_day.days
 

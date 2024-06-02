@@ -22,8 +22,10 @@ def main() -> None:
 ----------------------------------
 {lunchMsg}
 ----------------------------------
-오늘의 정보처리기능사 문제입니다
-==========================="""
+오늘의 정보처리기능사 알고리즘 문제입니다
+===========================
+http://problems.9gb.me/problem/{datetime.datetime.now().strftime('%Y%m%d')}
+"""
     
     f = open("t.txt", "r")
     index = int(f.readline())
@@ -39,7 +41,7 @@ def main() -> None:
     time.sleep(5)
     os.system("shutdown -s -t 1")
 
-schedule.every().day.at("07:00").do(main)
+schedule.every().day.at("21:40").do(main)
 
 if __name__ == '__main__':
     while 1:
