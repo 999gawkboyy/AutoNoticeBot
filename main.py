@@ -6,7 +6,7 @@ import schedule, os
 from noticeProblem import kakao_sendMedia
 from getGameTime import get_minsu_last_LOL
 
-chatroom_name = '정민건'
+chatroom_name = '23년 도제반'
 
 def main() -> None:
     open_chatroom(chatroom_name) 
@@ -19,7 +19,7 @@ def main() -> None:
 
     lunchMsg = f"오늘의 급식은 \n{lunchMenu} 입니다" if lunchMenu != -1 else "오늘은 급식이 없네요"
     message = f"""===========================
-정보처리기능사 실기 시험이 {dDay}일 남았습니다.
+정보처리산업기사 시험이 {dDay}일 남았습니다.
 ----------------------------------
 {lunchMsg}
 ----------------------------------
