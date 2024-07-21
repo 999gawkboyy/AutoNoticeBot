@@ -4,8 +4,9 @@ import time
 from noticeLunchMenu import findTodaysLunch
 import schedule, os
 from noticeProblem import kakao_sendMedia
+from getGameTime import get_minsu_last_LOL
 
-chatroom_name = '23년 도제반'
+chatroom_name = '정민건'
 
 def main() -> None:
     open_chatroom(chatroom_name) 
@@ -22,26 +23,28 @@ def main() -> None:
 ----------------------------------
 {lunchMsg}
 ----------------------------------
-오늘의 정보처리기능사 알고리즘 문제입니다
+민수의 마지막 게임시간입니다.
+
+League of Legends: {get_minsu_last_LOL()}
+Eternal Return: 개발중
+TeamFight Tactics: 개발중
 ===========================
-http://problems.9gb.me/problem/{datetime.datetime.now().strftime('%Y%m%d')}
 """
     
-    f = open("t.txt", "r")
-    index = int(f.readline())
-    print(index)
+    # f = open("t.txt", "r")
+    # index = int(f.readline())
+    # print(index)
 
-    fileDir = f"C:\\projects\\and\\네트워크\\NET_{index}.jpg"
+    # fileDir = f"C:\\projects\\and\\네트워크\\NET_{index}.jpg"
+    # kakao_sendMedia(fileDir, chatroom_name)
     kakao_sendtext(chatroom_name, message)
-    kakao_sendMedia(fileDir, chatroom_name)
-
-    f = open("t.txt", "w")
-    f.write(str(index + 1))
+    # f = open("t.txt", "w")
+    # f.write(str(index + 1))
 
     time.sleep(5)
     os.system("shutdown -s -t 1")
 
-schedule.every().day.at("21:40").do(main)
+schedule.every().day.at("06:00").do(main)
 
 if __name__ == '__main__':
     while 1:
