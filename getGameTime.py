@@ -1,19 +1,19 @@
 import requests
 from datetime import datetime, timezone, timedelta
 
-def get_minsu_last_LOL():
+def get_minsu_last_game(gameName):
     API_KEY = "RGAPI-0bffafe4-7695-4335-a7ec-a599524cb20b"
     headers = {
         "X-Riot-Token": API_KEY
     }
     PUUID = 'mSQzszCtIk_zI0U8TctYhZ_Mfb5559dB0iASct6V3EdSSJzas7uoadkC-FEXQLHFMv4_RXkoTyrDZw'
-    url = f"https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/{PUUID}/ids?start=0&count=1"
+    url = f"https://asia.api.riotgames.com/{gameName}/match/v5/matches/by-puuid/{PUUID}/ids?start=0&count=1"
 
-    res = requests.get(url, headers=headers)
+    res = requests.get(url, headers=headers, verify=False)
     last_match = res.text[2:-2]
 
-    url = f"https://asia.api.riotgames.com/lol/match/v5/matches/KR_7166154286"
-    res = requests.get(url, headers=headers)
+    url = f"https://asia.api.riotgames.com/{gameName}/match/v5/matches/{last_match}"
+    res = requests.get(url, headers=headers, verify=False)
     match_info = res.json()
     unix_timestamp = int(match_info['info'].get('gameEndTimestamp'))
     utc_datetime = datetime.utcfromtimestamp(unix_timestamp // 1000)
@@ -24,3 +24,6 @@ def get_minsu_last_LOL():
 
     kr_time_str = kr_datetime.strftime('%Y-%m-%d %H:%M:%S')
     return kr_time_str
+
+if __name__ == '__main__':
+    print(get_minsu_last_game("tft"))

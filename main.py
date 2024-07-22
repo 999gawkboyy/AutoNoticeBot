@@ -4,7 +4,7 @@ import time
 from noticeLunchMenu import findTodaysLunch
 import schedule, os
 from noticeProblem import kakao_sendMedia
-from getGameTime import get_minsu_last_LOL
+from getGameTime import get_minsu_last_game
 
 chatroom_name = '23년 도제반'
 
@@ -25,9 +25,9 @@ def main() -> None:
 ----------------------------------
 민수의 마지막 게임시간입니다.
 
-League of Legends: {get_minsu_last_LOL()}
+League of Legends: {get_minsu_last_game("lol")}
 Eternal Return: 개발중
-TeamFight Tactics: 개발중
+TeamFight Tactics: {get_minsu_last_game("tft")}
 ===========================
 """
     
