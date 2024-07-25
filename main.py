@@ -41,7 +41,7 @@ TeamFight Tactics: {get_minsu_last_game("tft")}
     # f = open("t.txt", "w")
     # f.write(str(index + 1))
 
-    time.sleep(5)
+    time.sleep(2)
     os.system("shutdown -s -t 1")
 
 schedule.every().day.at("06:00").do(main)
